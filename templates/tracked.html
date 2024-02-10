@@ -1,0 +1,28 @@
+{% block content %}
+  <h1>Product Details</h1>
+  {% for key, details in Product_details.items %}
+    <p><strong>{{ key }}:</strong> {{ details }}</p>
+  {% endfor %}
+{% endblock %}
+
+<h2>Tracking Data:</h2>
+{% if tracking_data %}
+    <table>
+        <thead>
+            <tr>
+                <th>Location</th>
+                <th>Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for key, data in tracking_data.items %}
+                <tr>
+                    <td>{{ data.Location }}</td>
+                    <td>{{ data.Time }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>No tracking data available.</p>
+{% endif %}

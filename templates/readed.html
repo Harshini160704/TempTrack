@@ -1,0 +1,10 @@
+
+
+{% block title %}Product Details{% endblock %}
+
+{% block content %}
+  <h1>Product Details</h1>
+  {% for key, details in Product_details.items %}
+    <p><strong>{{ key }}:</strong> {{ details }}</p>
+  {% endfor %}
+{% endblock %}

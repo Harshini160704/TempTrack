@@ -1,0 +1,31 @@
+{% block content %}
+<h1>Track</h1>
+<form method="post">
+    {% csrf_token %}
+    <label for="tag_id">NFC Tag ID:</label>
+    <input type="text" name="tag_id" required><br>
+    <button type="submit">Track</button>
+</form>
+<h2>Tracking Data:</h2>
+{% if tracking_data %}
+    <table>
+        <thead>
+            <tr>
+                <th>Location</th>
+                <th>Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for key, data in tracking_data.items %}
+                <tr>
+                    <td>{{ data.Location }}</td>
+                    <td>{{ data.Time }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>No tracking data available.</p>
+{% endif %}
+
+{% endblock %}
